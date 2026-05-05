@@ -50,9 +50,11 @@ V=0.01331 #Luftumsatz des Filters
 
 
 #Peak 1,2,3
-eps_d=[0.06343,0.07180,0.07673] #Nachweiswahrscheinlichkeit
+eps_d=[u.ufloat(0.06343,0.028),u.ufloat(0.07180,0.033),u.ufloat(0.07673,0.035)] #Nachweiswahrscheinlichkeit
 R=[0.0746,0.0192,0.371]
 Ny=[2245.5,1935.4,2829.8]
+Ny=[u.ufloat(2245.59,47.39),u.ufloat(1935.42,43.99),u.ufloat(2829.91,53.2)]
+
 
 rho_pb=[]
 c_A_Rn=[]
@@ -61,7 +63,7 @@ for i in range(len(eps_d)):
    rho=func_rho_pb(Ny[i], eps_f, eps_d[i], R[i], V, lam_Po, lam_Pb, T_f, t1, t2)
    rho_pb.append(rho)
    c_A_Rn.append(rho*lam_Pb)
-print("rho_{Pb}=",rho_pb)
+#print("rho_{Pb}=",rho_pb)
 print()
 print("c_A(Rn)")
 
